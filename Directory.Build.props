@@ -1,0 +1,9 @@
+<Project>
+    <PropertyGroup>
+        <Version>0.1.0</Version>
+        
+        <Authors>Connell Watkins</Authors>
+        <Copyright>Copyright © Connell Watkins 2020</Copyright>
+        <PackageProjectUrl>https://github.com/connellw/Doodad</PackageProjectUrl>
+    </PropertyGroup>
+</Project>
