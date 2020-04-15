@@ -1,9 +1,11 @@
 <Project>
     <PropertyGroup>
-        <Version>0.1.0</Version>
+        <VersionPrefix>0.1.0</VersionPrefix>
+        <VersionSuffix>alpha001</VersionSuffix>
         
         <Authors>Connell Watkins</Authors>
         <Copyright>Copyright © Connell Watkins 2020</Copyright>
         <PackageProjectUrl>https://github.com/connellw/Doodad</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/connellw/Doodad/blob/master/LICENSE.txt</PackageLicenseUrl>
     </PropertyGroup>
 </Project>
