@@ -8,4 +8,8 @@
     <PackageReference Include="MediatR" Version="8.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Doodad\Doodad.csproj" />
+  </ItemGroup>
+
 </Project>
