@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +15,7 @@ namespace Doodad.EntityFrameworkCore
         
         public Task CommitAsync(CancellationToken cancellationToken)
         {
-            
+            return _dbContext.SaveChangesAsync(cancellationToken);
         }
     }
 }
