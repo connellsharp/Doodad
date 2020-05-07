@@ -15,7 +15,7 @@ namespace Doodad.EntityFrameworkCore
 
         public IReadOnlyCollection<IDomainEvent> DequeueDomainEvents()
         {
-            return _dbContext.ChangeTracker.Entries<Entity>()
+            return _dbContext.ChangeTracker.Entries<IEntity>()
                 .SelectMany(po => po.Entity.Events)
                 .ToArray();
         }

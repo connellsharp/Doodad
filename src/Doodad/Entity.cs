@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Doodad
 {
-    public abstract class Entity
+    public interface IEntity
     {
-        public ICollection<IDomainEvent> Events { get; }
+        Guid Id { get; }
+        
+        ICollection<IDomainEvent> Events { get; }
     }
 }

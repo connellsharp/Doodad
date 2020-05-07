@@ -8,7 +8,7 @@ Work is based largely off of Microsoft's guide [Tackling Business Complexity in 
 
 The DDD package contains the common base classes and interfaces referred to as the ['seedwork'](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/seedwork-domain-model-base-classes-interfaces). This term is used because it's usually just a small set of classes and tends to be copied and pasted between projects, but in this case, the aim is to provide a more formal structure.
 
-- **Entity**: An object defined by its identity.
+- **IEntity**: An object defined by its identity.
 - **IAggregateRoot**: The root object of an aggregate; a collection of objects treated as one unit.
 - **IDomainEvent**: Something that happened that is of interest to domain experts.
 - **ValueObject**: An immutable object defined by its values, without a concept of identity.
