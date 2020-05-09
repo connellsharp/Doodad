@@ -2,7 +2,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace Doodad.Cqrs.Behaviors
+namespace Doodad.Cqrs.DomainEvents
 {
     public class DomainEventNotificationHandler<TNotification, TDomainEvent> : INotificationHandler<TNotification>
         where TNotification : DomainEventNotification<TDomainEvent>

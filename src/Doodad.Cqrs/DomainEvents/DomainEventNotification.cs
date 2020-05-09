@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Doodad.Cqrs.Behaviors
+namespace Doodad.Cqrs.DomainEvents
 {
     public class DomainEventNotification<TEvent> : INotification
         where TEvent : IDomainEvent

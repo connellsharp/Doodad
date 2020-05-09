@@ -1,6 +1,6 @@
 using System;
 
-namespace Doodad.Cqrs.Behaviors
+namespace Doodad.Cqrs.DomainEvents
 {
     internal static class DomainEventNotificationWrapper
     {

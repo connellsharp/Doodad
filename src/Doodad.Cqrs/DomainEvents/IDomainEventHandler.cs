@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Doodad.Cqrs.Behaviors
+namespace Doodad.Cqrs.DomainEvents
 {
     public interface IDomainEventHandler<TDomainEvent>
     {

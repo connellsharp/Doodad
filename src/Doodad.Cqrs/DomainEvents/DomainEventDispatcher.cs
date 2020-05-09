@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using MediatR;
 
-namespace Doodad.Cqrs.Behaviors
+namespace Doodad.Cqrs.DomainEvents
 {
     public class DomainEventDispatcher : IEventDispatcher
     {

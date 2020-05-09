@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Doodad.Cqrs.DomainEvents;
 using MediatR;
 
 namespace Doodad.Cqrs.Behaviors
