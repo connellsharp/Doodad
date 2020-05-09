@@ -1,14 +1,14 @@
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MediatR;
 
 namespace Doodad.Cqrs.Behaviors
 {
-    public class EventDispatcher : IEventDispatcher
+    public class DomainEventDispatcher : IEventDispatcher
     {
         private readonly IMediator _mediator;
         private readonly IDomainEventQueue _eventQueue;
 
-        public EventDispatcher(IMediator mediator, IDomainEventQueue eventQueue)
+        public DomainEventDispatcher(IMediator mediator, IDomainEventQueue eventQueue)
         {
             _mediator = mediator;
             _eventQueue = eventQueue;
@@ -23,9 +23,10 @@ namespace Doodad.Cqrs.Behaviors
                 if(events.Count == 0)
                     return;
                     
-                foreach(var evnt in events)
+                foreach(var domainEvent in events)
                 {
-                    await _mediator.Publish(evnt);
+                    var notification = DomainEventNotificationWrapper.Wrap(domainEvent);
+                    await _mediator.Publish(notification);
                 }
             }
         }
