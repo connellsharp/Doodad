@@ -3,10 +3,12 @@ using System.Collections.Generic;
 
 namespace Doodad
 {
-    public interface IEntity
+    public abstract class Entity : IEntity
     {
-        Guid Id { get; }
-        
-        ICollection<IDomainEvent> Events { get; }
+        protected Entity(Guid id) => Id = id;
+
+        public Guid Id { get; private set; }
+
+        public ICollection<IDomainEvent> Events { get; } = new List<IDomainEvent>();
     }
 }
