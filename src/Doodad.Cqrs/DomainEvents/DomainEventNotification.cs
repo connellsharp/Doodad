@@ -5,7 +5,7 @@ namespace Doodad.Cqrs.DomainEvents
     public class DomainEventNotification<TEvent> : INotification
         where TEvent : IDomainEvent
     {
-        internal DomainEventNotification(TEvent domainEvent)
+        public DomainEventNotification(TEvent domainEvent)
         {
             DomainEvent = domainEvent;
         }

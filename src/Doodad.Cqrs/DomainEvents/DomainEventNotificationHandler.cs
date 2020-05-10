@@ -1,23 +1,26 @@
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 
 namespace Doodad.Cqrs.DomainEvents
 {
-    public class DomainEventNotificationHandler<TNotification, TDomainEvent> : INotificationHandler<TNotification>
-        where TNotification : DomainEventNotification<TDomainEvent>
+    public class DomainEventNotificationHandler<TDomainEvent> : INotificationHandler<DomainEventNotification<TDomainEvent>>
         where TDomainEvent : IDomainEvent
     {
-        private readonly IDomainEventHandler<TDomainEvent> _domainEventHandler;
+        private readonly IEnumerable<IDomainEventHandler<TDomainEvent>> _domainEventHandlers;
 
-        public DomainEventNotificationHandler(IDomainEventHandler<TDomainEvent> domainEventHandler)
+        public DomainEventNotificationHandler(IEnumerable<IDomainEventHandler<TDomainEvent>> domainEventHandlers)
         {
-            _domainEventHandler = domainEventHandler;
+            _domainEventHandlers = domainEventHandlers;
         }
 
-        public Task Handle(TNotification notification, CancellationToken cancellationToken)
+        public async Task Handle(DomainEventNotification<TDomainEvent> notification, CancellationToken cancellationToken)
         {
-            return _domainEventHandler.Handle(notification.DomainEvent);
+            foreach(var domainEventHandler in _domainEventHandlers)
+            {
+                await domainEventHandler.Handle(notification.DomainEvent);
+            }
         }
     }
 }
