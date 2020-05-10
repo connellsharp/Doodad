@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace Doodad.EntityFrameworkCore
@@ -15,9 +14,15 @@ namespace Doodad.EntityFrameworkCore
 
         public IReadOnlyCollection<IDomainEvent> DequeueDomainEvents()
         {
-            return _dbContext.ChangeTracker.Entries<IEntity>()
-                .SelectMany(po => po.Entity.Events)
-                .ToArray();
+            var domainEvents = new List<IDomainEvent>();
+
+            foreach(var entry in _dbContext.ChangeTracker.Entries<IEntity>())
+            {
+                domainEvents.AddRange(entry.Entity.DomainEvents);
+                entry.Entity.DomainEvents.Clear();
+            }
+
+            return domainEvents;
         }
     }
 }
