@@ -7,6 +7,6 @@ namespace Doodad
     {
         Guid Id { get; }
         
-        ICollection<IDomainEvent> DomainEvents { get; }
+        IDomainEventAppender DomainEvents { get; }
     }
 }

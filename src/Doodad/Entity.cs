@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Doodad
 {
@@ -7,6 +6,6 @@ namespace Doodad
     {
         public Guid Id { get; protected set; } = Guid.NewGuid();
 
-        public ICollection<IDomainEvent> DomainEvents { get; } = new List<IDomainEvent>();
+        public IDomainEventAppender DomainEvents { get; } = new DomainEventCollection();
     }
 }
