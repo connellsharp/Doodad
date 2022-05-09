@@ -11,7 +11,7 @@ namespace Doodad
 
         public TValue Value { get; }
 
-        protected override IEnumerable<object> GetValues() => new object[] { Value };
+        protected override IEnumerable<object> GetEqualityComponents() => new object[] { Value };
 
         public override int CompareTo(T other) => this.Value.CompareTo(other.Value);
     }
